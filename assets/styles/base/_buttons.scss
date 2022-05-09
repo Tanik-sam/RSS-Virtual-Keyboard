@@ -1,0 +1,9 @@
+.keyboard__key{
+    @include buttons;
+    @extend %transition;
+}
+.rule{
+  @include buttons;
+  background-color: $color_rule_keys;
+  @extend %transition;
+}

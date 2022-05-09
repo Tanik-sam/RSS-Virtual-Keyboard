@@ -1,0 +1,13 @@
+
+$color_background:#CDCDCD;
+$color_keys:#808080;
+$color_keys_hover:#8fabbd;
+$color_rule_keys:#545454;
+@font-face {
+    font-family: 'ArialMT';
+    src: url('../fonts/ArialMT.woff2') format('woff2'),
+      url('../fonts/ArialMT.woff2') format('woff');
+    font-weight: 600;
+    font-style: normal;
+  }
+$font:'ArialMT';
