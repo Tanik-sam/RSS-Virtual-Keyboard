@@ -1,0 +1,117 @@
+@font-face {
+  font-family: "ArialMT";
+  src: url("../fonts/ArialMT.woff2") format("woff2"), url("../fonts/ArialMT.woff2") format("woff");
+  font-weight: 600;
+  font-style: normal;
+}
+.rule, .keyboard__key {
+  transition: all 0.3s ease-out;
+}
+
+.keyboard__key {
+  cursor: pointer;
+  position: relative;
+  background-color: #808080;
+  marging: 6px 8px;
+  border-radius: 3px;
+  box-shadow: 0px 0px 3px 1px rgb(46, 46, 46);
+  border: 1px solid rgb(41, 41, 41);
+  margin: 2px;
+  text-decoration: none;
+  color: white;
+  font-family: "ArialMT";
+  font-style: normal;
+  font-size: 1rem;
+  font-weight: 400;
+  min-width: 20px;
+}
+.keyboard__key:hover {
+  background-color: #8fabbd;
+}
+
+.rule {
+  cursor: pointer;
+  position: relative;
+  background-color: #808080;
+  marging: 6px 8px;
+  border-radius: 3px;
+  box-shadow: 0px 0px 3px 1px rgb(46, 46, 46);
+  border: 1px solid rgb(41, 41, 41);
+  margin: 2px;
+  text-decoration: none;
+  color: white;
+  font-family: "ArialMT";
+  font-style: normal;
+  font-size: 1rem;
+  font-weight: 400;
+  min-width: 20px;
+  background-color: #545454;
+}
+.rule:hover {
+  background-color: #8fabbd;
+}
+
+.keyboard {
+  margin: auto;
+  text-align: center;
+  max-width: 1280px;
+}
+
+.keyboard__textarea {
+  padding: 10px;
+}
+
+.keyboard__keyboard {
+  margin: auto;
+  max-width: 700px;
+  background-color: #CDCDCD;
+  border: 3px solid #CDCDCD;
+  border-radius: 10px;
+}
+
+.keyboardRow {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: nowrap;
+  justify-content: center;
+}
+
+.keyboardRow__4 :nth-child(4) {
+  width: 240px;
+}
+
+.hidden {
+  display: none;
+}
+
+.keyboard__key {
+  transition: 1s;
+  width: fit-content;
+  height: fit-content;
+}
+
+.clicked {
+  transition: 1s;
+  background-color: #8fabbd;
+}
+
+.caseDown, .caseUp, .caps, .shiftCaps {
+  padding: 10px 14px;
+  min-height: 40px;
+  min-width: 40px;
+}
+
+.explanation {
+  position: relative;
+  text-align: center;
+  margin: auto;
+  padding-top: 20px;
+  font-family: "ArialMT";
+  font-style: normal;
+  font-size: 1rem;
+  font-weight: 400;
+  color: white;
+  color: #545454;
+}
+
+/*# sourceMappingURL=style.css.map */
