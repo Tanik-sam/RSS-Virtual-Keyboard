@@ -1,5 +1,3 @@
-import "../assets/styles/style.scss";
-
 let key = [];
 let keyLang = [];
 let keyMode = [];
@@ -3527,24 +3525,6 @@ let textArr=[]
 let foc=false
 screen.onfocus=(()=>foc=true)
 let counter=0
-/*document.addEventListener('keyup',realKeyboardUp)
-function realKeyboardUp(event){
-  console.log('подъем')
-  let card = event.target.closest("div");
-  let text = event.target.textContent;
-  switch (text) {
-    case "Shift":
-  clicked = document.querySelector(".shift");
-  clicked.onkeyup = setTimeout(
-    () => {let selectorsDown=document.getElementsByClassName('caseDown')
-    let selectorsUp=document.getElementsByClassName('caseUp')
-    for (let i=0;i<selectorsDown.length;i++){
-      selectorsDown[i].classList.toggle('hidden')
-      selectorsUp[i].classList.toggle('hidden')}},
-    600
-  );
- 
- }}*/
 
 function typing(event) {
   
@@ -3645,7 +3625,7 @@ function realKeyboard(event) {
   event.preventDefault();
   let key = event.key;
   let clicked = null;
-  console.log(key);
+
   if ((event.shiftKey) && (event.ctrlKey || event.metaKey)) {
     let selectorsEng=document.getElementsByClassName('eng')
         let selectorsRus=document.getElementsByClassName('rus')
@@ -3683,7 +3663,7 @@ function realKeyboard(event) {
       event.preventDefault();
         screen.blur();
         clicked = document.querySelector(".win");
-        console.log(clicked)
+
         clicked.classList.add("clicked");
           clicked.onkeyup = setTimeout(
             () => clicked.classList.remove("clicked"),
@@ -3792,7 +3772,7 @@ function realKeyboard(event) {
         screen.selectionStart = start;
       }
       clicked = document.querySelector(".del");
-      console.log(clicked);
+     
       clicked.classList.add("clicked");
       clicked.onkeyup = setTimeout(
         () => clicked.classList.remove("clicked"),
