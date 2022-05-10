@@ -3689,12 +3689,21 @@ function realKeyboard(event) {
           break;
     case 'Alt': 
       screen.blur();
+      if (event.code==='AltRight'){
+        let clickedArr3 = document.querySelectorAll(".alt");
+        clicked=clickedArr3[clickedArr3.length-1]
+        clicked.classList.add("clicked");
+        clicked.onkeyup = setTimeout(
+          () => clicked.classList.remove("clicked"),
+          600
+        );}
+       else{
       clicked = document.querySelector(".alt");
       clicked.classList.add("clicked");
         clicked.onkeyup = setTimeout(
           () => clicked.classList.remove("clicked"),
           600
-        );
+        );}
       break;
     case 'Meta':
       event.preventDefault();
@@ -3709,12 +3718,21 @@ function realKeyboard(event) {
     break; 
     case 'Control':
         screen.blur();
+        if (event.code==='ControlRight'){
+          let clickedArr2 = document.querySelectorAll(".ctrl");
+          clicked=clickedArr2[clickedArr2.length-1]
+          clicked.classList.add("clicked");
+          clicked.onkeyup = setTimeout(
+            () => clicked.classList.remove("clicked"),
+            600
+          );}
+          else{
         clicked = document.querySelector(".ctrl");
         clicked.classList.add("clicked");
           clicked.onkeyup = setTimeout(
             () => clicked.classList.remove("clicked"),
             600
-          );
+          );}
     break;
     case 'Tab':
       event.preventDefault();
@@ -3757,21 +3775,38 @@ function realKeyboard(event) {
       textArr.push("</br>");
       screen.selectionStart = screen.innerHTML.length;
       screen.append(`\n`);
+      clicked = document.querySelector(".enter");
+      clicked.classList.add("clicked");
+      clicked.onkeyup = setTimeout(
+        () => clicked.classList.remove("clicked"),
+        600
+        );
       break;
     case "Shift":
+
       let selectorsDown=document.getElementsByClassName('caseDown')
         let selectorsUp=document.getElementsByClassName('caseUp')
         for (let i=0;i<selectorsDown.length;i++){
           selectorsDown[i].classList.toggle('hidden')
           selectorsUp[i].classList.toggle('hidden')
         }
+        if (event.code==='ShiftRight'){
+          let clickedArr = document.querySelectorAll(".shift");
+          clicked=clickedArr[clickedArr.length-1]
+  clicked.classList.add("clicked");
+  clicked.onkeyup = setTimeout(
+    () => clicked.classList.remove("clicked"),
+    600
+    );
+}
+else{
         clicked = document.querySelector(".shift");
         clicked.classList.add("clicked");
         clicked.onkeyup = setTimeout(
           () => clicked.classList.remove("clicked"),
           600
           );
-    
+        }
       break;  
       case "CapsLock":
         let selectorsDown1=document.getElementsByClassName('caseDown')
