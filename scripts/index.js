@@ -3524,27 +3524,45 @@ let textArr=[]
 
 let foc=false
 screen.onfocus=(()=>foc=true)
-let counter=0
 
 function typing(event) {
+  let select= screen.selectionStart
   
   let card = event.target.closest("div");
   let text = event.target.textContent;
   switch (text) {
     case "◄":
-      if (counter!==-1*screen.innerHTML.length){
-      counter--;}
+      if (screen.selectionStart>0){
       screen.focus();
-      screen.selectionStart = screen.innerHTML.length+counter;
-      screen.selectionEnd = screen.innerHTML.length+counter;
+      screen.selectionStart = select-1;
+      screen.selectionEnd = select-1;}
     break;
     case "►":
-      if (counter!==screen.innerHTML.length){
-      counter++;}
-      screen.focus();
-      screen.selectionStart = screen.innerHTML.length+counter;
-      screen.selectionEnd = screen.innerHTML.length+counter;
+      if (screen.selectionStart<=screen.innerHTML.length){
+        screen.focus();
+        screen.selectionStart = select+1;
+        screen.selectionEnd = select+1;}
     break;
+    case "▲":
+      screen.focus()
+      let rows=screen.value.split('\n')
+      let row= screen.value.substring(0, select).split('\n')
+      if (row.length-2>=0){
+      let totalLength = screen.value.split('\n')[row.length-2].length
+      screen.focus()
+      screen.selectionStart -= totalLength + 1;
+      screen.selectionEnd = screen.selectionStart;}
+      break;
+      case "▼":
+        screen.focus()
+        let rows2=screen.value.split('\n')
+        let row2= screen.value.substring(0, select).split('\n')
+        if (row2.length-1>=0){
+        let totalLength = screen.value.split('\n')[row2.length-1].length
+        screen.focus()
+        screen.selectionStart += totalLength + 1;
+        screen.selectionEnd = screen.selectionStart;}
+        break;
     case 'Alt': case 'Win': case "Ctrl":
       screen.blur();
       break;
@@ -3613,6 +3631,7 @@ function typing(event) {
     default:
       textArr.push(text.charAt(0));
       screen.append(text.charAt(0));
+
   }
 
 
@@ -3621,7 +3640,7 @@ function typing(event) {
 
 }
 function realKeyboard(event) {
-
+  let select= screen.selectionStart
   event.preventDefault();
   let key = event.key;
   let clicked = null;
@@ -3637,19 +3656,37 @@ function realKeyboard(event) {
     
   switch (key) {
     case "ArrowLeft":
-      if (counter!==-1*screen.innerHTML.length){
-        counter--;}
+      if (screen.selectionStart>0){
         screen.focus();
-        screen.selectionStart = screen.innerHTML.length+counter;
-        screen.selectionEnd = screen.innerHTML.length+counter;
+        screen.selectionStart = select-1;
+        screen.selectionEnd = select-1;}
       break;
       case "ArrowRight":
-        if (counter!==screen.innerHTML.length){
-          counter++;}
+        if (screen.selectionStart<=screen.innerHTML.length){
           screen.focus();
-          screen.selectionStart = screen.innerHTML.length+counter;
-          screen.selectionEnd = screen.innerHTML.length+counter;
+          screen.selectionStart = select+1;
+          screen.selectionEnd = select+1;}
       break;
+      case "ArrowUp":
+        screen.focus()
+        let rows=screen.value.split('\n')
+        let row= screen.value.substring(0, select).split('\n')
+        if (row.length-2>=0){
+        let totalLength = screen.value.split('\n')[row.length-2].length
+        screen.focus()
+        screen.selectionStart -= totalLength + 1;
+        screen.selectionEnd = screen.selectionStart;}
+        break;
+        case "ArrowDown":
+          screen.focus()
+          let rows2=screen.value.split('\n')
+          let row2= screen.value.substring(0, select).split('\n')
+          if (row2.length-1>=0){
+          let totalLength = screen.value.split('\n')[row2.length-1].length
+          screen.focus()
+          screen.selectionStart += totalLength + 1;
+          screen.selectionEnd = screen.selectionStart;}
+          break;
     case 'Alt': 
       screen.blur();
       clicked = document.querySelector(".alt");
