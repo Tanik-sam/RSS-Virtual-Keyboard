@@ -3575,8 +3575,8 @@ function typing(event) {
       break;
     case "Enter":
       textArr.push("</br>");
-      screen.append(document.createElement("br"));
-      screen.append("");
+      screen.selectionStart = screen.innerHTML.length;
+      screen.append(`\n`);
       break;
       case "Shift":
         let selectorsDown=document.getElementsByClassName('caseDown')
@@ -3718,8 +3718,8 @@ function realKeyboard(event) {
       break;
     case "Enter":
       textArr.push("</br>");
-      screen.append(document.createElement("br"));
-      screen.append("");
+      screen.selectionStart = screen.innerHTML.length;
+      screen.append(`\n`);
       break;
     case "Shift":
       let selectorsDown=document.getElementsByClassName('caseDown')
